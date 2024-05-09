@@ -45,7 +45,7 @@
 ### 3. Project Workflow
 
 - **User Flows**:
-  - Details the different user workflows, such as Registration and Login, Device Management, and Data Visualization.
+  - Details the different user workflows, such as Registration and Login, Device Management, and Data Visualization. (yet to document)
 
 - **Device Distribution Workflow**:
   1. **Device Storage and Dispatch**:
