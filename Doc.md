@@ -84,7 +84,24 @@
          - To prevent unauthorized access, a verification layer is implemented.
          - Users' registration requests must be approved by the device's admin before accessing the IoT interface.
          - This ensures that only authorized users can view and interact with specific devices, maintaining privacy and security.
-- **User Flows**:
+
+
+- **Detailed Workflow**:
+  The workflow of device distribution within our IoT Devices Manager application begins with the firm storing devices in their store without specific device-to-customer tracking. When an order is received, devices are randomly dispatched from the store to customers or middlemen. This random distribution ensures flexibility and avoids the need for meticulous tracking at the point of dispatch.
+
+  To manage device ownership and tracking effectively, we utilize a unique analogy. When a user receives a device and logs into our management app to register it, they become the designated admin for that device. This registration process not only establishes ownership but also informs us as the firm (super admin) through a shared database and tables. However, there's a potential flaw in this approach: any individual who gains access to a device could potentially register it and assume admin privileges. We recognize the need to refine this logic to ensure more controlled device ownership and registration.
+
+  Now, let's consider what happens when a device reaches the first middleman. Upon receiving the device, the first middleman registers it in our portal, effectively assuming ownership of the device within our system. Since our devices are IoT-enabled with built-in SIM cards, we perform KYC (Know Your Customer) on the SIM during registration to associate the device with the middleman. Despite the registration process, we acknowledge the aforementioned flaw and plan to implement measures to mitigate unauthorized registrations.
+
+  After registration, there are two primary scenarios for the device's journey with the first middleman:
+
+  Direct Sale to End User:
+  If the first middleman sells the device directly to an end user, the end user can access our separate user application to interact with the IoT device. Initially, the user has read-only access, enabling them to view device parameters and data. To gain control or modify settings, the user must contact the device's admin (first middleman) for necessary access permissions.
+  Sale to Another Middleman:
+  Alternatively, if the first middleman sells the device to another middleman (Middleman 2), Middleman 2 also needs to register the device in our portal. However, the original admin (Middleman 1) retains control over the device. Middleman 2 must request administrative privileges from Middleman 1 to access and manage the device further.
+  Moving on to authentication and authorization at the end-user level, we employ a unique approach to secure device interactions. Each device is identified by a DeviceId, prominently displayed as a QR code and sticker on the device itself. To interact with a device via our IoT interface web app, end customers register on the platform and provide the DeviceId associated with their device.
+
+  However, to prevent unauthorized access and ensure device privacy, we've implemented a verification layer. When a customer requests device access, their registration request goes to the device's admin for approval. Only after the admin approves the request can the customer log in to the IoT interface web app and interact with the specific device. Admins also have the ability to revoke access to maintain privacy and security over device interactions.
 
 
 
@@ -106,8 +123,7 @@
 
 
 
-
-
+<!-- 
 
 
 
@@ -189,4 +205,4 @@
 ## 11. Future Enhancements
 
 - **Feature Roadmap**:
-  - Implement real-tim
+  - Implement real-tim -->
